@@ -1,3 +1,6 @@
 [submodule "reactnd-contacts-app"]
 	path = reactnd-contacts-app
 	url = https://github.com/kcemenike/reactnd-contacts-app
+[submodule "reactnd-contacts-server2"]
+	path = reactnd-contacts-server2
+	url = https://github.com/udacity/reactnd-contacts-server2
