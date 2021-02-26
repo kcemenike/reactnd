@@ -4,3 +4,6 @@
 [submodule "reactnd-contacts-server2"]
 	path = reactnd-contacts-server2
 	url = https://github.com/udacity/reactnd-contacts-server2
+[submodule "reactnd-exercise1"]
+	path = reactnd-exercise1
+	url = https://github.com/kcemenike/reactnd-exercise1
