@@ -1,0 +1,3 @@
+[submodule "reactnd-contacts-app"]
+	path = reactnd-contacts-app
+	url = https://github.com/kcemenike/reactnd-contacts-app
