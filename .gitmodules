@@ -10,3 +10,6 @@
 [submodule "reactnd-exercise2"]
 	path = reactnd-exercise2
 	url = https://github.com/kcemenike/reactnd-exercise2
+[submodule "reactnd-exercise-functional-components"]
+	path = reactnd-exercise-functional-components
+	url = https://github.com/kcemenike/reactnd-exercise-functional-components
