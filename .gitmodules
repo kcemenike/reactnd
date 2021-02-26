@@ -7,3 +7,6 @@
 [submodule "reactnd-exercise1"]
 	path = reactnd-exercise1
 	url = https://github.com/kcemenike/reactnd-exercise1
+[submodule "reactnd-exercise2"]
+	path = reactnd-exercise2
+	url = https://github.com/kcemenike/reactnd-exercise2
