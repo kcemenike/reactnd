@@ -13,3 +13,6 @@
 [submodule "reactnd-exercise-functional-components"]
 	path = reactnd-exercise-functional-components
 	url = https://github.com/kcemenike/reactnd-exercise-functional-components
+[submodule "reactnd-managing-state-exercise"]
+	path = reactnd-managing-state-exercise
+	url = https://github.com/kcemenike/reactnd-managing-state-exercise.git
