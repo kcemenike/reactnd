@@ -16,3 +16,6 @@
 [submodule "reactnd-managing-state-exercise"]
 	path = reactnd-managing-state-exercise
 	url = https://github.com/kcemenike/reactnd-managing-state-exercise.git
+[submodule "reactnd-project-myreads"]
+	path = reactnd-project-myreads
+	url = https://github.com/kcemenike/reactnd-project-myreads
