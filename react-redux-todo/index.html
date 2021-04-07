@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Udacity Todos Goals</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/3.7.2/redux.min.js"></script>
 </head>
+
 <body>
   <div>
     <h1>Todo List</h1>
@@ -60,62 +62,64 @@
     const ADD_GOAL = 'ADD_GOAL'
     const REMOVE_GOAL = 'REMOVE_GOAL'
 
-    function addTodoAction (todo) {
+    function addTodoAction(todo) {
       return {
         type: ADD_TODO,
         todo,
       }
     }
 
-    function removeTodoAction (id) {
+    function removeTodoAction(id) {
       return {
         type: REMOVE_TODO,
         id,
       }
     }
 
-    function toggleTodoAction (id) {
+    function toggleTodoAction(id) {
       return {
         type: TOGGLE_TODO,
         id,
       }
     }
 
-    function addGoalAction (goal) {
+    function addGoalAction(goal) {
       return {
         type: ADD_GOAL,
         goal,
       }
     }
 
-    function removeGoalAction (id) {
+    function removeGoalAction(id) {
       return {
         type: REMOVE_GOAL,
         id,
       }
     }
 
-    function todos (state = [], action) {
-      switch(action.type) {
-        case ADD_TODO :
+    function todos(state = [], action) {
+      switch (action.type) {
+        case ADD_TODO:
           return state.concat([action.todo])
-        case REMOVE_TODO :
+        case REMOVE_TODO:
           return state.filter((todo) => todo.id !== action.id)
-        case TOGGLE_TODO :
+        case TOGGLE_TODO:
           return state.map((todo) => todo.id !== action.id ? todo :
-            Object.assign({}, todo, { complete: !todo.complete }))
-        default :
+            Object.assign({}, todo, {
+              complete: !todo.complete
+            }))
+        default:
           return state
       }
     }
 
-    function goals (state = [], action) {
-      switch(action.type) {
-        case ADD_GOAL :
+    function goals(state = [], action) {
+      switch (action.type) {
+        case ADD_GOAL:
           return state.concat([action.goal])
-        case REMOVE_GOAL :
+        case REMOVE_GOAL:
           return state.filter((goal) => goal.id !== action.id)
-        default :
+        default:
           return state
       }
     }
@@ -127,21 +131,77 @@
     //   }
     // }
 
-    const store = Redux.createStore(Redux.combineReducers({
-      todos,
-      goals
-    }))
+    // function checkAndDispatch(store, action) {
+    //   if (action.type === ADD_TODO && action.todo.name.toLowerCase().includes('bitcoin')){
+    //     return alert("Nope. That's a bad idea")
+    //   }
+    //   if (action.type === ADD_GOAL && action.goal.name.toLowerCase().includes('bitcoin')){
+    //     return alert("Nope. That's a bad idea")
+    //   }
+
+    //   return store.dispatch(action)
+    // }
+
+    const checker = (store) => (next) => (action) => {
+      if (action.type === ADD_TODO && action.todo.name.toLowerCase().includes('bitcoin')) {
+        return alert("Nope. That's a bad idea")
+      }
+      if (action.type === ADD_GOAL && action.goal.name.toLowerCase().includes('bitcoin')) {
+        return alert("Nope. That's a bad idea")
+      }
+
+      return next(action)
+    }
+
+    // function checker(store) {
+    //   return function (next) {
+    //     return function (action) {
+    //       if (action.type === ADD_TODO && action.todo.name.toLowerCase().includes('bitcoin')) {
+    //         return alert("Nope. That's a bad idea")
+    //       }
+    //       if (action.type === ADD_GOAL && action.goal.name.toLowerCase().includes('bitcoin')) {
+    //         return alert("Nope. That's a bad idea")
+    //       }
+
+    //       return next(action)
+    //     }
+    //   }
+    // }
+
+    // Logger middleware
+    const logger = (store) => (next) => (action) => {
+      console.group(action.type)
+      console.log('The action: ', action)
+      const result = next(action)
+      console.log('The new state: ', store.getState())
+      console.groupEnd()
+      return result
+    }
+
+    const store = Redux.createStore(
+      Redux.combineReducers({
+        todos,
+        goals
+      }), // todos and goals are the reducer functions
+      Redux.applyMiddleware(
+        checker,
+        logger
+      ) // checker and logger are middleware functions
+    )
 
     store.subscribe(() => {
-      console.log('The new state is: ', store.getState())
+      // console.log('The new state is: ', store.getState())
 
       document.getElementById('todos').innerHTML = ''
       document.getElementById('goals').innerHTML = ''
 
-      const { goals, todos } = store.getState()
+      const {
+        goals,
+        todos
+      } = store.getState()
       todos.forEach(addTodoToDOM)
       goals.forEach(addGoalToDOM)
-      
+
     })
 
     function addTodo() {
@@ -156,7 +216,7 @@
       }))
     }
 
-    function addGoal () {
+    function addGoal() {
       const input = document.getElementById('goal')
       const name = input.value
       input.value = ''
@@ -213,4 +273,5 @@
     }
   </script>
 </body>
+
 </html>
