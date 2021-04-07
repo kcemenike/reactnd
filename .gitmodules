@@ -19,3 +19,6 @@
 [submodule "reactnd-project-myreads"]
 	path = reactnd-project-myreads
 	url = https://github.com/kcemenike/reactnd-project-myreads
+[submodule "react-redux-todo"]
+	path = react-redux-todo
+	url = https://github.com/kcemenike/react-redux-todo
