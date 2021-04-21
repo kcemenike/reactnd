@@ -22,3 +22,6 @@
 [submodule "react-redux-todo"]
 	path = react-redux-todo
 	url = https://github.com/kcemenike/react-redux-todo
+[submodule "reactnd-project-would-you-rather-starter"]
+	path = reactnd-project-would-you-rather-starter
+	url = https://github.com/kcemenike/reactnd-project-would-you-rather-starter
