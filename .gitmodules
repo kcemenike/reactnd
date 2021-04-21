@@ -25,3 +25,6 @@
 [submodule "reactnd-project-would-you-rather-starter"]
 	path = reactnd-project-would-you-rather-starter
 	url = https://github.com/kcemenike/reactnd-project-would-you-rather-starter
+[submodule "react-todos-goals"]
+	path = react-todos-goals
+	url = https://github.com/kcemenike/react-todos-goals
