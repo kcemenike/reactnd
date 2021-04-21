@@ -28,3 +28,6 @@
 [submodule "react-todos-goals"]
 	path = react-todos-goals
 	url = https://github.com/kcemenike/react-todos-goals
+[submodule "reactnd-chirper-app"]
+	path = reactnd-chirper-app
+	url = https://github.com/kcemenike/reactnd-chirper-app
